@@ -53,7 +53,7 @@ class OfertaController extends Controller {
 		$dados['valor_f'] = 'R$ ' . number_format($dados['valor'], 2, ",", ".");
 		Oferta::create($dados);
 
-		return redirect()->route('ofertas.index')->withErrors($dados)
+		return redirect()->route('ofertas.index');
 	}
 
 	/**
