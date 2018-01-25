@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OfertaRequest;
 use App\Oferta;
 use Illuminate\Http\Request;
 
@@ -37,22 +38,22 @@ class OfertaController extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request) {
+	public function store(OfertaRequest $request) {
+
 		$dados = $request->all();
+
 		if ($request->hasFile('imagem')) {
 			$imagem = $request->file('imagem');
 			$ext = $imagem->guessClientExtension();
-			//$base64 = 'dta:image/' . $ext . ';base64,' . base64_encode(file_get_contents($imagem));
 			$diretorio = "img/";
 			$nomeImg = 'img_' . rand(111, 999) . '.' . $ext;
 			$imagem->move($diretorio, $nomeImg);
-			//$dados['imagem'] = $base64;
 			$dados['imagem'] = $diretorio . $nomeImg;
 		}
 		$dados['valor_f'] = 'R$ ' . number_format($dados['valor'], 2, ",", ".");
 		Oferta::create($dados);
 
-		return redirect()->route('ofertas.index');
+		return redirect()->route('ofertas.index')->withErrors($dados)
 	}
 
 	/**

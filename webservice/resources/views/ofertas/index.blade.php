@@ -4,7 +4,7 @@
 <div class="container">
     <h4 class="text-center"><mark>Listagem de Ofertas</mark></h4><br>
     <div class="panel-body">
-        <a href="/ofertas/create" class="btn btn-info">Adicionar</a><br><br>
+        <a href="/ofertas/create" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a><br><br>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -26,10 +26,10 @@
                         <form class="" method="POST" action="{{route('ofertas.destroy', $oferta->id)}}">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
-                             <a class="btn btn-primary btn-sm" href="{{route('ofertas.edit', $oferta->id)}}">
+                             <a class="btn btn-success btn-sm" href="{{route('ofertas.edit', $oferta->id)}}">
                             <i class="fa fa-pencil"></i>
                         </a>
-                            <button class="btn btn-default">Deletar</button>
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>
