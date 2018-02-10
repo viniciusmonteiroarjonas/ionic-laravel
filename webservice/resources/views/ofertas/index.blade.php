@@ -5,14 +5,14 @@
     <h4 class="text-center"><mark>Listagem de Ofertas</mark></h4><br>
     <div class="panel-body">
         <a href="/ofertas/create" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a><br><br>
-        <table class="table table-hover">
+        <table class="table table-hover" id="tabelaOfertas">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Título</th>
                     <th>Valor</th>
                     <th>Imagem</th>
-                    <th>Ação</th>
+                    <th data-orderable="false">Ação</th>
                 </tr>
             </thead>
             <tbody>
