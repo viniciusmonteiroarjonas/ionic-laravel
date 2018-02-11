@@ -4,7 +4,7 @@
 <div class="container">
     <h4 class="text-center"><mark>Listagem de Ofertas</mark></h4><br>
     <div class="panel-body">
-        <a href="/ofertas/create" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a><br><br>
+        <a href="{{route('cadastro.oferta')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a><br><br>
         <table class="table table-hover" id="tabelaOfertas">
             <thead>
                 <tr>
@@ -23,14 +23,10 @@
                     <td>{{$oferta->valor_f}}</td>
                     <td><img height="40px" src="{{asset($oferta->imagem)}}"></td>
                     <td>
-                        <form class="" method="POST" action="{{route('ofertas.destroy', $oferta->id)}}">
-                            {{csrf_field()}}
-                            {{method_field('DELETE')}}
-                             <a class="btn btn-success btn-sm" href="{{route('ofertas.edit', $oferta->id)}}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                        </form>
+                       <a href="{{route('editar.oferta', $oferta->id)}}">
+                        <button class="btn btn-default"><i class="fa fa-edit"></i></button>
+                       </a>
+                       <button class="btn btn-default" onclick="removerOferta({{$oferta->id}})"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>
                 @endforeach

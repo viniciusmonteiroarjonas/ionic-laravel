@@ -28,8 +28,8 @@ class OfertaController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create() {
-		return view('ofertas/create');
+	public function cadastro() {
+		return view('ofertas/cadastro');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class OfertaController extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(OfertaRequest $request) {
+	public function salvar(OfertaRequest $request) {
 
 		$dados = $request->all();
 
@@ -72,9 +72,9 @@ class OfertaController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id) {
+	public function editar($id) {
 		$oferta = Oferta::find($id);
-		return view('ofertas/edit', compact('oferta'));
+		return view('ofertas/editar', compact('oferta'));
 	}
 
 	/**
@@ -84,11 +84,12 @@ class OfertaController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
+	public function atualizar(OfertaRequest $request, $id) {
 		$dados = $request->all();
 		if ($request->hasFile('imagem')) {
 			$imagem = $request->file('imagem');
 			$ext = $imagem->guessClientExtension();
+			$diretorio = "img/";
 			$nomeImg = 'img_' . rand(111, 999) . '.' . $ext;
 			$imagem->move($diretorio, $nomeImg);
 			$dados['imagem'] = $diretorio . $nomeImg;
@@ -105,7 +106,7 @@ class OfertaController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
+	public function remover($id) {
 		$oferta = Oferta::find($id)->delete();
 		return redirect()->route('ofertas.index');
 	}

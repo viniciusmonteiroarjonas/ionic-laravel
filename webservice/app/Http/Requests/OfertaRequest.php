@@ -24,15 +24,16 @@ class OfertaRequest extends FormRequest {
 			[
 			'titulo' => 'required',
 			'validade' => 'required',
-			'valor' => 'required',
-			'imagem' => 'required',
+			'valor' => 'numeric',
+			//'imagem' => 'required',
 		];
 	}
 
 	public function messages() {
 		return
 			[
-			'required' => 'O campo :atribute é obrigatório.',
+			'required' => 'O campo :attribute é obrigatório.',
+			'numeric' => 'O campo :attribute deve ser númerico.',
 		];
 	}
 }
