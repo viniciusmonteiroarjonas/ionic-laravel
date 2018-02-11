@@ -6,6 +6,9 @@
 |--------------------------------------------------------------------------
  */
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', 'OfertaController@index')->name('ofertas.index');
 Route::get('/home', 'OfertaController@index')->name('home');
 
@@ -17,4 +20,3 @@ Route::group(['prefix' => 'ofertas'], function () {
 	Route::get('/editar/{id}', 'OfertaController@editar')->name('editar.oferta');
 	Route::put('/atualizar/{id}', 'OfertaController@atualizar')->name('atualizar.oferta');
 });
-//Route::resource('ofertas', 'OfertaController');

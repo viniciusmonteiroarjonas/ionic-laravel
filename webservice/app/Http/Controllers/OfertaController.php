@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class OfertaController extends Controller {
 
 	public function __construct() {
-		//$this->middleware('auth');
+		$this->middleware('auth');
 	}
 
 	/**
