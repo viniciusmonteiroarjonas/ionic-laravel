@@ -1,10 +1,7 @@
 {
   "name": "ofertasApp",
-  "app_id": "",
-  "type": "ionic1",
-  "integrations": {
-    "gulp": {}
-  },
+  "integrations": {},
+  "pro_id": "com.guiferreira.ofertasapp",
   "watchPatterns": [
     "scss/**/*",
     "www/**/*",
