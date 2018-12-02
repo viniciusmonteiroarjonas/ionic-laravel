@@ -1,11 +1,13 @@
 {
   "name": "ofertasApp",
   "integrations": {},
+  "type": "angular",
   "pro_id": "com.guiferreira.ofertasapp",
   "watchPatterns": [
     "scss/**/*",
     "www/**/*",
     "!www/lib/**/*",
     "!www/**/*.map"
-  ]
+  ],
+  "id": "com.guiferreira.ofertasapp"
 }

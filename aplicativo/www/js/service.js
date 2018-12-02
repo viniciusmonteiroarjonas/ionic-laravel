@@ -10,7 +10,7 @@ angular.module('service',['ngStorage'])
   var _getOfertas = function(scope){
 
 
-    $http.get('http://localhost:8000//api/ofertas').then(
+    $http.get('http://localhost:8000/api/ofertas').then(
       function(retorno){
         $localStorage.ofertas = retorno.data;
         scope.ofertas = retorno.data;
